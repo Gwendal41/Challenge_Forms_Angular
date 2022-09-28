@@ -1,0 +1,35 @@
+input{
+    margin-bottom: 10px
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.error-msg{
+    margin-bottom: 100px;
+}
+
+span{
+    color: red;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    margin-bottom: 10px;
+}
+
+button{
+    margin-bottom: 10px;
+}
+
+h1{
+text-decoration: underline;
+}

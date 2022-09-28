@@ -1,0 +1,56 @@
+<div class="form-container">
+    <h1>Demande d'inscription</h1>
+    <form #signUp=ngForm (ngSubmit)="onSubmit()">
+        <div class="input-container">
+            <label for="firstname"> Renseigne ton prénom </label>
+            <input type="text" name="firstname" id ='firstname' minlength="3" maxlength="15" value="Firstname" [(ngModel)]="user.firstname" #firstname="ngModel" required>
+        
+            <div *ngIf="firstname.errors">
+                <span *ngIf="signUp.submitted">
+                    <span *ngIf="firstname.errors?.['required']"> Le prénom est obligatoire</span>
+                    <span *ngIf="firstname.errors?.['minlength']" > Le prénom doit comporter au moins 3 caractères</span>
+                    <span *ngIf="firstname.errors?.['maxlength']" > Le prénom ne doit pas dépasser 15 caractères.</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <label for="lastname">Renseigne ton nom </label>
+            <input type="text" name="lastname" id="lastname" minlength="3" maxlength="15" value="Lastname" [(ngModel)]="user.lastname" #lastname="ngModel" required>
+        
+            <div *ngIf="lastname.errors">
+                <span *ngIf="signUp.submitted">
+                    <span *ngIf="lastname.errors?.['required']"> Le nom est obligatoire</span>
+                    <span *ngIf="lastname.errors?.['minlength']" > Le nom doit comporter au moins 3 caractères</span>
+                    <span *ngIf="lastname.errors?.['maxlength']" > Le nom ne doit pas dépasser 15 caractères.</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <label for="email">Renseigne ton adresse mail </label>
+            <input type="email" name="email" id="email" value="email" [(ngModel)]="user.email" #email="ngModel" required email>
+        
+            <div *ngIf="email.errors">
+                <span *ngIf="signUp.submitted">
+                    <span *ngIf="email.errors?.['required']"> L'email est invalide</span>
+                    <span *ngIf="email.errors?.['email']"> L'email est invalide</span>
+                </span>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <label for="password">Renseigne ton mot de passe </label>
+            <input type="password" name="password" id="password" value="password" [(ngModel)]="user.password" #password="ngModel" required>
+        
+            <div *ngIf="password.errors">
+                <span *ngIf="signUp.submitted">
+                    <span *ngIf="password.errors?.['required']"> Le mot de passe est obligatoire</span>
+                </span>
+            </div>
+        </div>
+
+
+    <button type="submit">Envoyer</button>
+</form>
+</div>
